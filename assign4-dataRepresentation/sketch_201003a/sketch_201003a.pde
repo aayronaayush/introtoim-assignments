@@ -82,7 +82,7 @@ void dataTransformation(){
 void plotPoints(){
   float yLineGap = (width-axisOffset)/numCols;
   for(int i=0;i<numCols;i++){
-    strokeWeight(4);
+    strokeWeight(6);
     float yCoord = height-(plotData[i]+axisOffset+yLineGap);
     //println(plotData[i]);
     point(axisOffset+yLineGap+(yLineGap)*i,yCoord);
@@ -92,9 +92,9 @@ void plotPoints(){
 void printLabels(){
   //title
   fill(0,0,0);
-  textSize(18);
+  textSize(20);
   textAlign(CENTER);
-  String title = "Graph Of Average Pace Against Run Days";
+  String title = "Graph Of Average Pace [minutes/km] Against Run Days";
   text(title,width/2, height-(axisOffset/5));
   
   
@@ -112,7 +112,7 @@ void printLabels(){
   {
     text(text,axisOffset-10,y);
     text++;
-    println(text);
+    //println(text);
   }
     
   for (float y=height-axisOffset; y>=0; y=y-xLineGap){
