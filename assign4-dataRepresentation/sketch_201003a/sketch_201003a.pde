@@ -11,12 +11,10 @@ void setup() {
   drawGrid();
   printLabels();
   plotPoints();
+  noLoop();
 }
 
 void draw() {
-  //drawGrid();
-  //loadData();
-  //plotPoints();
 }
 
 void drawAxes() {
