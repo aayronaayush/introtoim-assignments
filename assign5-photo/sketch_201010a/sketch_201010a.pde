@@ -1,34 +1,50 @@
 PImage img;
 int counter = 0;
+int KeyCode = -1;
 
 void setup() {
   size(1280, 720);
   img = loadImage("scene.jpg");
   image(img, 0, 0, width, height);
+  //noLoop();
 }
 
 void draw() {
+  //if (mouseX>0 && mouseX<width && mouseY>0 && mouseY<height) {
+  //  negativeMousePosition();
+  //}
 }
 
 void keyPressed() {
+  float sinVal = radians(180);
+  println(sin(sinVal),cos(radians(180)));
   if (keyCode==49) { //1
     invertRGB();
+    KeyCode = 49;
   } else if (keyCode==50) { //2
     invertR();
+    KeyCode = 50;
   } else if (keyCode==51) { //3
     invertG();
+    KeyCode = 51;
   } else if (keyCode==52) { //4
     invertB();
+    KeyCode = 52;
   } else if (keyCode==53) { //5
     swapPixels();
-  } else if (keyCode == 54){ //6
+    KeyCode = 53;
+  } else if (keyCode == 54) { //6
     exagerate();
-  }
-  else { //anything else
+    KeyCode = 54;
+  } else { //anything else
     drawOriginal();
+    KeyCode = -1;
   }
 }
 
+//void mouseDragged(){
+//  negativeMousePosition();
+//}
 
 void invertRGB() {
   //img = loadImage("scene.jpg");
@@ -96,19 +112,19 @@ void swapPixels() {
   loadPixels();
   //println(pixels[1]);
   //println(pixels[width*height-2]);
-  
-  for(int i=0;i<(width*height)/2;i++){
-   int temp;
-   temp = pixels[i];
-   pixels[i] = pixels[width*height-1-i];
-   pixels[width*height-1-i] = temp;
+
+  for (int i=0; i<(width*height)/2; i++) {
+    int temp;
+    temp = pixels[i];
+    pixels[i] = pixels[width*height-1-i];
+    pixels[width*height-1-i] = temp;
   }
-  
+
   updatePixels();
   //println(pixels[1]);
 }
 
-void exagerate(){
+void exagerate() {
   //img = loadImage("scene.jpg");
   //image(img, 0, 0, width, height);
   loadPixels();
